@@ -1,4 +1,5 @@
 # Shark Attack Risk Analysis — Mini Project
+*Week 2 mini-project developed during the Ironhack Data Analytics bootcamp.*
 
 ## Dataset
 
@@ -11,15 +12,13 @@ Research team at OKinsurance proposing a water-sport risk insurance product for 
 
 ## Hypotheses
 
-| ## | Hypothesis | Status | ✅ Done
-
 The analysis was guided by three core hypotheses:
 
-- H1: Risk is concentrated in a small number of countries.
-- H2: Risk varies significantly by month/season.
-- H3: Unprovoked attacks dominate — risk is environmental, not behavioral.
+- H1: Recorded incidents are concentrated in a small number of countries.
+- H2: Recorded incidents vary by month/season.
+- H3: Unprovoked attacks are the dominant recorded classification.
 
-All three hypotheses were supported by the data.
+The exploratory analysis found patterns consistent with all three hypotheses.
 
 
 ## MVP (Minimum Viable Product)
@@ -118,14 +117,14 @@ Ensured consistent casing and removed trailing symbols or formatting artifacts.
 ### Documented limitations
 
 - ~12.4% of rows don't have a clear enough date to determine the month, and are excluded only from the seasonality analysis (not from the overall dataset)
-- The incident count by month is currently **global** (not filtered by `Swimming` activity or by region) — this depends on the `Activity` column cleanup
+- Monthly incident counts were explored both globally and for the USA; these are historical counts and are not adjusted for exposure, tourism volume or participation in water activities.
 - A time-window filter (e.g. last 10-15 years) has not yet been applied — decision pending, to be justified based on data volume per year
 
 ### Result (incident count by month, global, before activity filter)
 
 | Month | Incidents |
 |---|---|
-| January* | 812 (includes outlier to be corrected) |
+| January* | 816 (includes structural outlier) |
 | February | 391 |
 | March | 430 |
 | April | 454 |
@@ -141,7 +140,7 @@ Ensured consistent casing and removed trailing symbols or formatting artifacts.
 *January corrected after removing the structural outlier (see limitations section).
 
 
-### Result (incident count by month, global, after activity filter)
+### Result (incident count by month, USA, after January outlier correction)
 
 | Month | Incidents |
 |---|---|
@@ -158,13 +157,13 @@ Ensured consistent casing and removed trailing symbols or formatting artifacts.
 | November | 125 |
 | December | 79|
 
+* 338 of 816 January records (41.4%) had been interpreted as January 1st, largely due to incomplete historical dates being auto-parsed.
 
-* 41 % of January rows had the exact date "Jan 1st" — a signature of incomplete original dates (year only), defaulted by Excel/pandas.
+* After removing this structural artifact, the global January count fell from 816 to 478.
+  
 
-* 812 → 478 Corrected January incident count
-
-
-## Next Steps
+## Original Next Steps
+*Kept as part of the original Week 2 project workflow; some of these steps were completed later in the project.*
 - Repeat the monthly count filtering for `Activity == 'Swimming'` only (once the column is cleaned)
 - Cross seasonality with `Country`/`Location` to identify safer region+month combinations
 - Decide on and apply a time window for the final analysis
