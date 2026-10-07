@@ -29,7 +29,7 @@ The exploratory analysis found patterns consistent with all three hypotheses.
 - A direct recommendation: months/country with historically higher swimming-related incidents
 
 **Out of MVP (only if time allows):**
-- H3 (swimming vs. surfing vs. diving comparison)
+- Additional activity comparison (swimming vs. surfing vs. diving)
 - Refined time-window filter (e.g. last 10-15 years)
 - Data visualizations / dashboard
 
@@ -120,7 +120,7 @@ Ensured consistent casing and removed trailing symbols or formatting artifacts.
 - Monthly incident counts were explored both globally and for the USA; these are historical counts and are not adjusted for exposure, tourism volume or participation in water activities.
 - A time-window filter (e.g. last 10-15 years) has not yet been applied — decision pending, to be justified based on data volume per year
 
-### Result (incident count by month, global, before activity filter)
+### Result (incident count by month, global, before January outlier correction)
 
 | Month | Incidents |
 |---|---|
